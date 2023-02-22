@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.header {
+    background-position: 50%;
+    background-image: url('https://source.unsplash.com/random');
+    height: 350px;
+}
+
+.header-contenido {
+    background-color: rgba(0, 0, 0, 0.75)
+}

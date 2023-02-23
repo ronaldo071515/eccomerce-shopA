@@ -14,7 +14,7 @@ export class ProductsService {
   ) { }
 
 
-  getAllProducts(limit = '10', sort = 'asc', category?: string): Observable<Products[]> {
+  getAllProducts(limit = '10', sort = 'desc', category?: string): Observable<Products[]> {
     return this.http.get<Products[]>(`${ environment.url }/products${category ? '/category/' + category : ''}?sort=${sort}&limit=${limit}`);
   }
 

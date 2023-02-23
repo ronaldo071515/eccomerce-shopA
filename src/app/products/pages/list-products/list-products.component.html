@@ -13,11 +13,50 @@
       </div>
     </div>
 </header>
-<section class="py-10">
-  <div class="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-    <article class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 "
-      *ngFor="let product of products">
-      <app-card-product [product]="product"></app-card-product>
-    </article>
+<div class="pt-10 bg-white">
+  <h1 class="text-center text-2xl font-bold text-gray-800">Todos los productos</h1>
+</div>
+
+<div class="flex flex-wrap items-center  overflow-x-auto overflow-y-hidden py-10 justify-center bg-white text-gray-800">
+	<a class="flex items-center flex-shrink-0 px-5 py-3 space-x-2 text-gray-600 cursor-pointer" 
+    (click)="getCategory('electronics')">
+    <i class="fas fa-charging-station"></i>
+		<span>Electrónica</span>
+	</a>
+	<a class="flex items-center flex-shrink-0 px-5 py-3 space-x-2 text-gray-600 cursor-pointer"
+    (click)="getCategory('jewelery')">
+    <i class="far fa-gem"></i>
+		<span>Joyería</span>
+	</a>
+	<a class="flex items-center flex-shrink-0 px-5 py-3 space-x-2 text-gray-600 cursor-pointer"
+    (click)="getCategory(mens)">
+    <i class="fas fa-tshirt"></i>
+		<span>Ropa de Hombre</span>
+	</a>
+	<a class="flex items-center flex-shrink-0 px-5 py-3 space-x-2 text-gray-600 cursor-pointer"
+    (click)="getCategory(womens)">
+    <i class="fab fa-cotton-bureau"></i>
+    <span>Ropa de Mujer</span>
+	</a>
+</div>
+
+<div class="flex items-center justify-center space-x-2 pt-2" *ngIf="products.length == 0; else elseTemplate">
+  <div
+    class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+    role="status">
+    <span
+      class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+    >Loading...</span>
   </div>
-</section>
+</div>
+<ng-template #elseTemplate>
+  <section class="py-5">
+    <div class="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <article class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 "
+        *ngFor="let product of products">
+        <app-card-product [product]="product"></app-card-product>
+      </article>
+    </div>
+  </section>
+</ng-template>
+

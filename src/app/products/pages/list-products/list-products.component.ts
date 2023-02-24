@@ -11,13 +11,10 @@ import { Products, Category } from '../../models/productos.interface';
 export class ListProductsComponent implements OnInit {
 
   products: Products[] = [];
-  categories: Category[] = [];
-  category: string | undefined;
+  category = Category;
+  categoryOption: string | undefined;
   sort = 'desc';
   count = '10';
-
-  mens = "men's clothing";
-  womens = "women's clothing";
 
   constructor(
     private productService: ProductsService
@@ -30,15 +27,17 @@ export class ListProductsComponent implements OnInit {
   }
 
   getProducts(): void {
-    this.productService.getAllProducts(this.count, this.sort, this.category)
+    this.productService.getAllProducts(this.count, this.sort, this.categoryOption)
       .subscribe( (_products: any) => {
         this.products = _products;
     });
   }
 
   getCategory(category: string) {
-    this.category = category;
+    // this.products = [];
+    this.categoryOption = category;
     this.getProducts();
+    // this.categoryOption === category ? 'text-gray-600': this.classActive = 'text-blue-500';
   }
     
 }

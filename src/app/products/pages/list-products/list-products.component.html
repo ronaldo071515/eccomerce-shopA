@@ -18,23 +18,27 @@
 </div>
 
 <div class="flex flex-wrap items-center  overflow-x-auto overflow-y-hidden py-10 justify-center bg-white text-gray-800">
-	<a class="flex items-center flex-shrink-0 px-5 py-3 space-x-2 text-gray-600 cursor-pointer" 
-    (click)="getCategory('electronics')">
+	<a class="flex items-center flex-shrink-0 px-5 py-3 space-x-2 hover:text-blue-500 cursor-pointer transition-colors duration-300" 
+    (click)="getCategory(category.Electronics)"
+    [ngClass]="categoryOption !== category.Electronics ? 'text-gray-600': 'text-blue-500'">
     <i class="fas fa-charging-station"></i>
 		<span>Electrónica</span>
 	</a>
-	<a class="flex items-center flex-shrink-0 px-5 py-3 space-x-2 text-gray-600 cursor-pointer"
-    (click)="getCategory('jewelery')">
+	<a class="flex items-center flex-shrink-0 px-5 py-3 space-x-2 hover:text-blue-500 cursor-pointer transition-colors duration-300"
+    (click)="getCategory(category.Jewelery)"
+    [ngClass]="categoryOption !== category.Jewelery ? 'text-gray-600': 'text-blue-500'">
     <i class="far fa-gem"></i>
 		<span>Joyería</span>
 	</a>
-	<a class="flex items-center flex-shrink-0 px-5 py-3 space-x-2 text-gray-600 cursor-pointer"
-    (click)="getCategory(mens)">
+	<a class="flex items-center flex-shrink-0 px-5 py-3 space-x-2 hover:text-blue-500 cursor-pointer transition-colors duration-300"
+    (click)="getCategory(category.MenSClothing)"
+    [ngClass]="categoryOption !== category.MenSClothing ? 'text-gray-600': 'text-blue-500'">
     <i class="fas fa-tshirt"></i>
 		<span>Ropa de Hombre</span>
 	</a>
-	<a class="flex items-center flex-shrink-0 px-5 py-3 space-x-2 text-gray-600 cursor-pointer"
-    (click)="getCategory(womens)">
+	<a class="flex items-center flex-shrink-0 px-5 py-3 space-x-2 hover:text-blue-500 cursor-pointer transition-colors duration-300"
+    (click)="getCategory(category.WomenSClothing)"
+    [ngClass]="categoryOption !== category.WomenSClothing ? 'text-gray-600': 'text-blue-500'">
     <i class="fab fa-cotton-bureau"></i>
     <span>Ropa de Mujer</span>
 	</a>

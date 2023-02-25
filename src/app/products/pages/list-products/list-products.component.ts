@@ -34,10 +34,9 @@ export class ListProductsComponent implements OnInit {
   }
 
   getCategory(category: string) {
-    // this.products = [];
+    this.products = [];
     this.categoryOption = category;
     this.getProducts();
-    // this.categoryOption === category ? 'text-gray-600': this.classActive = 'text-blue-500';
   }
     
 }

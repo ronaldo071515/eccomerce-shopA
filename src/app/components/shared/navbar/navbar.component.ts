@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalsService } from '../../../services/modals.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,18 +8,8 @@ import { ModalsService } from '../../../services/modals.service';
 })
 export class NavbarComponent implements OnInit {
 
-  showModal!: boolean;
+  constructor() { }
 
-  constructor(private modalService: ModalsService) { }
-
-  ngOnInit(): void {
-    this.modalService.confirmModal().subscribe( (valor) => {
-      this.showModal = valor;
-    });
-  }
-
-  openModal() {
-    this.showModal = true;
-  }
+  ngOnInit(): void {}
 
 }

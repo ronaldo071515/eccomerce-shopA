@@ -11,4 +11,6 @@ export class CardProductComponent {
   
   @Input() product!: Products;
 
+  constructor() {}
+
 }

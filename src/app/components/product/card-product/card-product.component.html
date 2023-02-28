@@ -1,5 +1,6 @@
 <a>
-  <div class="relative flex items-start justify-evenly overflow-hidden rounded-xl">
+  <div class="relative flex items-start justify-evenly overflow-hidden rounded-xl cursor-pointer"
+    [routerLink]="['info-product', product.id]">
     <img [src]="product.image" [alt]="product.title" class="h-40 text-center"/>
     <div class="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md">
       <i class="fas fa-star h-5 w-5 text-yellow-400"></i>

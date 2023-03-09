@@ -18,16 +18,29 @@
       <i class="fas fa-cart-plus"></i>
       <span class="absolute -top-2 left-4 rounded-full bg-red-500 p-0.5 px-2 text-sm text-red-50">0</span>
     </a>
-    <!-- Register -->
-    <a class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300"
-      routerLink="/auth/register">
-      Registrate
-    </a>
-    <!-- Login -->
-    <a class="flex justify-center items-baseline text-gray-600 hover:text-green-500 cursor-pointer transition-colors duration-300 font-semibold"
-      routerLink="/auth">
-      Iniciar Sesión
-      <i class="fas fa-sign-in-alt ml-1"></i>
-    </a>
+    <ng-container *ngIf="!username; else elseTemplate">
+      <!-- Register -->
+      <a class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300"
+        routerLink="/auth/register">
+        Registrate
+      </a>
+      <!-- Login -->
+      <a class="flex justify-center items-baseline text-gray-600 hover:text-green-500 cursor-pointer transition-colors duration-300 font-semibold"
+        routerLink="/auth">
+        Iniciar Sesión
+        <i class="fas fa-sign-in-alt ml-1"></i>
+      </a>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <a class="flex justify-center items-baseline bg-blue-400 p-2 text-white font-semibold rounded">
+        {{ username }}
+        <i class="far fa-user ml-1"></i>
+      </a>
+      <a class="flex justify-center items-baseline bg-red-500 p-3 text-white font-semibold rounded"
+         (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
+    </ng-template>
+    
   </div>
 </nav>

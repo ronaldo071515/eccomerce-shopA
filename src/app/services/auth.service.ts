@@ -52,6 +52,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('cartProducts');
     this._usuario = '';
   }
 

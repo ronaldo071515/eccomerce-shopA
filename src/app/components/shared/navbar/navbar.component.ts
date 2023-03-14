@@ -25,6 +25,7 @@ export class NavbarComponent implements OnInit {
     
     ngOnInit(): void {
       const articlesCart = JSON.parse( localStorage.getItem('cartProducts')! );
+      if( !articlesCart ) return;
       this.cartService.cartSubject$.subscribe(cartProducts => {
         this.countProductsCart = cartProducts.length || articlesCart.length;
       });

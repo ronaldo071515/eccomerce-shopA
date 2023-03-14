@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListProductsComponent } from './pages/list-products/list-products.component';
 import { InfoProductComponent } from './pages/info-product/info-product.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { AuthValidGuard } from '../guards/auth-valid.guard';
 
 const routes: Routes = [
   {
@@ -18,9 +19,10 @@ const routes: Routes = [
       },
       {
         path: 'cart',
-        component: CartComponent
+        component: CartComponent,
+        canActivate: [ AuthValidGuard ],
       }
-    ]
+    ],
   }
 ];
 

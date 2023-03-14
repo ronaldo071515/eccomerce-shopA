@@ -16,14 +16,16 @@
   <div class="flex items-center space-x-5 mr-10">
     <a class="flex text-gray-600 text-3xl hover:text-blue-500 cursor-pointer transition-colors duration-300 relative scale-75" routerLink="/products/cart">
       <i class="fas fa-cart-plus"></i>
-      <span class="absolute -top-2 left-4 rounded-full bg-red-500 p-0.5 px-2 text-sm text-red-50">0</span>
+      <span class="absolute -top-2 left-4 rounded-full bg-red-500 p-0.5 px-2 text-sm text-red-50">
+        {{ countProductsCart }}
+      </span>
     </a>
     <ng-container *ngIf="!username; else elseTemplate">
       <!-- Register -->
-      <a class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300"
+      <!-- <a class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300"
         routerLink="/auth/register">
         Registrate
-      </a>
+      </a> -->
       <!-- Login -->
       <a class="flex justify-center items-baseline text-gray-600 hover:text-green-500 cursor-pointer transition-colors duration-300 font-semibold"
         routerLink="/auth">

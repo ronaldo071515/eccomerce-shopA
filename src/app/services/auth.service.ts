@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { catchError, map, of, tap } from 'rxjs';
+import { catchError, map, of, tap, Observable } from 'rxjs';
 
 
 import { UserLogin } from '../products/models/userLogin.interface';
@@ -42,6 +42,11 @@ export class AuthService {
         map( resp => resp),
         catchError( error => of(error.error) )
       );
+  }
+
+  validateSesion(): Observable<boolean> {
+    const token = localStorage.getItem('token');
+    return of(!!token);
   }
 
   logout() {

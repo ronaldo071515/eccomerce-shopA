@@ -4,6 +4,7 @@ import { switchMap } from 'rxjs';
 
 import { ProductsService } from '../../../services/products.service';
 import { Product } from '../../models/producto.interface';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-info-product',
@@ -16,6 +17,7 @@ export class InfoProductComponent implements OnInit {
   product!: Product;
 
   constructor(
+    private cartService: CartService,
     private productService: ProductsService,
     private activateRoute: ActivatedRoute,
     private route: Router,
@@ -31,6 +33,10 @@ export class InfoProductComponent implements OnInit {
 
   backAllProducts() {
     this.route.navigateByUrl('/')
+  }
+
+  addCart(id: number, product: any) {
+    this.cartService.addCart(id, product);
   }
 
 }

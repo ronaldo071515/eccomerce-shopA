@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { ProductsService } from '../../../services/products.service';
 import { Products, Category } from '../../models/productos.interface';
@@ -20,7 +19,6 @@ export class ListProductsComponent implements OnInit {
 
   constructor(
     private productService: ProductsService,
-    private router: Router
   ) { }
 
   
@@ -41,11 +39,5 @@ export class ListProductsComponent implements OnInit {
     this.categoryOption = category;
     this.getProducts();
   }
-
-  /* infoProduct(id: number) {
-    this.router.navigate(['info-product', id]).then( e => {
-      console.log(e);
-    }).catch( err => console.log(err));
-  } */
     
 }

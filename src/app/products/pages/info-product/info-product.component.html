@@ -23,7 +23,8 @@
           <hr class="border-l-2 bg-gray-400 mt-5">
           <div class="flex ml-auto mt-5 justify-between">
             <span class="title-font font-medium text-2xl text-gray-900">{{ product.price | currency:'USD' }}</span>
-            <button class="flex text-center items-center text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">
+            <button class="flex text-center items-center text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded"
+              (click)="addCart(product.id, product)">
               Añadir
               <i class="fas fa-cart-plus"></i>
             </button>

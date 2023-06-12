@@ -53,7 +53,8 @@ export class CartService {
             }
           });
         } else {
-          const productCart = { productid, quantity: 1, product };
+          const articlesCart = JSON.parse( localStorage.getItem('cartProducts')! );
+          const productCart = { productid, quantity: 1, product, ...articlesCart };
           const existe = this._cart.some( product => product.productid === productid );
           if ( existe ) {
               const products = this._cart.map( product => {

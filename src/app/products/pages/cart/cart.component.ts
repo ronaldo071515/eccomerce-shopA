@@ -13,7 +13,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     const articlesCart = JSON.parse( localStorage.getItem('cartProducts')! );
-    this.productsCart = articlesCart
+    this.productsCart = articlesCart;
   }
 
 }

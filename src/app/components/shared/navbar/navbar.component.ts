@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, AfterContentChecked } from '@angular/core';
 import { Router } from '@angular/router';
-import { take } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 
 import { AuthService } from '../../../services/auth.service';
@@ -12,7 +11,7 @@ import { CartService } from '../../../services/cart.service';
   styles: [
   ]
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnChanges, AfterContentChecked {
 
   @Input() username!: string;
   countProductsCart: number = 0;
@@ -22,13 +21,21 @@ export class NavbarComponent implements OnInit {
     private cartService: CartService,
     private router: Router,
     ) {}
-    
-    ngOnInit(): void {
-      const articlesCart = JSON.parse( localStorage.getItem('cartProducts')! );
-      if( !articlesCart ) return;
+  ngAfterContentChecked(): void {
+    // console.log('ngAfterContentChecked');
+    const articlesCart = JSON.parse( localStorage.getItem('cartProducts')! );
+    if( !articlesCart ) return;
       this.cartService.cartSubject$.subscribe(cartProducts => {
-        this.countProductsCart = cartProducts.length || articlesCart.length;
-      });
+        console.log('observador', cartProducts);
+      this.countProductsCart = cartProducts.length || articlesCart.length;
+    });
+  }
+
+  ngOnChanges(): void {
+    console.log('ngOnChanges');
+  }
+  
+  ngOnInit(): void {
   }
 
   logout() {
